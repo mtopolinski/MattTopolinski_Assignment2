@@ -24,8 +24,15 @@ console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
 function DeepEqual(input1, input2)
 {
 
+    if (input1.typeof != Object || input2.typeof != Object)
+    {
     if (input1 === null || input2 === null)
     {
         return "Error; a null and/or null object has been used.";
     }
+
+    else if
+        {
+        }
+        }
 }
