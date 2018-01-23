@@ -21,17 +21,27 @@ console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
 
  */
 
+
+//create the function to pass two objects/variables
 function DeepEqual(input1, input2) {
 
+
+    //initial If statement to qualify variables if they're NOT both Objects
     if (input1.typeof != Object || input2.typeof != Object) {
+
+        //If the variables are not objects, but either one is null, then return False
         if (input1 === null || input2 === null) {
-            return "Error; a null and/or null object has been used.";
+
+            return false;
+            console.log("Error; a null and/or null object has been used.");
         }
 
+        //if the variables are NOT objects and are equal to each other then return True
         else if (input1 === input2) {
             return true;
         }
 
+        //IF the variables are NOT Objects and are NOT equal, then return False
         else if (input1 != input2) {
             return false;
         }
