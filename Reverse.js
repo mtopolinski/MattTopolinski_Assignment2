@@ -13,9 +13,13 @@ function ReverseString(textVar)
     //initializing an array to accept each character from the original String
     var textBack = [];
 
+    var totLength = textVar.length;
+
     for (i = 0; i < textVar.length; i++)
     {
 
+        textBack.push[textVar.charAt(totLength)];
+        totLength -= totLength;
 
     }
 
