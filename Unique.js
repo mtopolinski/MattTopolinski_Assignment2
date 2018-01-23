@@ -11,10 +11,26 @@ function isUnique(strArray)
 {
 
     var totLength = strArray.length;
+    var counter = 0;
 
     for (i = 0; i < strArray.length; i++)
     {
+        for (j = 0; j < totLength; j++)
+        {
+            if (strArray[i] === totLength[j])
+            {
+                counter++
+            }
+        }
 
+        if (counter > 1)
+        {
+            return false;
+    }}
+
+    else
+    {
+        return true;
     }
 
 }
