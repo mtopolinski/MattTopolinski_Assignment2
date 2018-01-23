@@ -7,30 +7,32 @@ o Return false is two or more elements are the same.
 
  */
 
-function isUnique(strArray)
-{
+function isUnique(strArray) {
 
-    var totLength = strArray.length;
+    var copyArray = strArray;
     var counter = 0;
 
-    for (i = 0; i < strArray.length; i++)
-    {
-        for (j = 0; j < totLength; j++)
-        {
-            if (strArray[i] === totLength[j])
-            {
+    for (i = 0; i < strArray.length; i++) {
+        for (j = 0; j < copyArray.length; j++) {
+            if (strArray[i] === copyArray[j]) {
                 counter++
             }
         }
 
-        if (counter > 1)
-        {
+        if (counter > 1) {
             return false;
-    }}
+        }
 
-    else
-    {
-        return true;
+        else {
+            return true;
+        }
     }
 
+
 }
+
+var testArray = ["one", "two", "three", "one"];
+var testArray2 = ["one", "two", "three", "four", "five", "six", "seven"];
+
+console.log(isUnique(testArray));
+console.log(isUnique(testArray2));
