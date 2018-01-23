@@ -37,6 +37,21 @@ function DeepEqual(input1, input2) {
         }
     }
 
+    else if (input1.typeof = Object && input2.typeof != Object)
+    {
+        return false;
+    }
+
+    else if (input1.typeof != Object && input2.typeof == Object)
+    {
+        return false;
+    }
+
+    else if (input1.typeof == Object && input2.typeof == Object)
+    {
+
+    }
+
 
 }
 
