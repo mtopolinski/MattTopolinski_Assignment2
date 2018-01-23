@@ -47,16 +47,22 @@ function DeepEqual(input1, input2) {
         }
     }
 
+
+    //If the first variable passed is an Object but the second passed is not an Object then return False
     else if (input1.typeof = Object && input2.typeof != Object)
     {
         return false;
     }
 
+
+    //If the first variable passed is not an Object but the second is then return False
     else if (input1.typeof != Object && input2.typeof == Object)
     {
         return false;
     }
 
+
+    //IF both variables are Objects, then we'll need to examine the contents to determine if they're the same
     else if (input1.typeof == Object && input2.typeof == Object)
     {
 
