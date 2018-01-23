@@ -49,23 +49,52 @@ function DeepEqual(input1, input2) {
 
 
     //If the first variable passed is an Object but the second passed is not an Object then return False
-    else if (input1.typeof = Object && input2.typeof != Object)
-    {
+    else if (input1.typeof = Object && input2.typeof != Object) {
         return false;
     }
 
 
     //If the first variable passed is not an Object but the second is then return False
-    else if (input1.typeof != Object && input2.typeof == Object)
-    {
+    else if (input1.typeof != Object && input2.typeof == Object) {
         return false;
     }
 
 
     //IF both variables are Objects, then we'll need to examine the contents to determine if they're the same
-    else if (input1.typeof == Object && input2.typeof == Object)
-    {
+    else if (input1.typeof == Object && input2.typeof == Object) {
+        var input1Array = [];
+        var input2Array = [];
+        var diffCount = 0;
 
+        for (inputs in input1) {
+            input1Array += inputs;
+        }
+
+        for (inputs in input2) {
+            input2Array += inputs;
+        }
+
+        if (input1Array.length != input2Array.length) {
+            return false;
+        }
+
+        else if (input1Array.length === input2Array.length) {
+
+            for (i = 0; i <= input1Array.length; i++) {
+                if (input1Array[i] != input2Array[i]) {
+                    diffCount++
+                }
+
+            }
+
+            if (diffCount <= 0) {
+                return true;
+            }
+
+            else if (diffCount > 0) {
+                return false;
+            }
+        }
     }
 
 
@@ -74,7 +103,27 @@ function DeepEqual(input1, input2) {
 var test1 = "a";
 var test2 = test1;
 var test3 = 18;
+var states1 = {
+
+    "IL": "Illinois",
+    "IN": "Indiana",
+    "MI": "Michigan"
+}
+var states2 = {
+
+    "IL": "Illinois",
+    "IN": "Indiana",
+    "MI": "Michigan"
+}
+
+var states3 = {
+
+    "IL": "Illinois",
+    "IN": "Indiana",
+    "NY": "New York"
+}
 
 console.log(DeepEqual(test1, test2));
 console.log(DeepEqual(test1, test3));
-
+console.log(DeepEqual(states1, states2));
+console.log(DeepEqual(states1, states3));
