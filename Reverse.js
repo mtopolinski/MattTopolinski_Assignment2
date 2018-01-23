@@ -11,15 +11,17 @@ o What happens if null is passed in as an argument? How can we prevent problems 
 function ReverseString(textVar)
 {
     //initializing an array to accept each character from the original String
-    var textBack = [];
+    var textBack = "";
 
     var totLength = textVar.length;
 
-    for (i = 0; i < textVar.length; i++)
+    for (i = 0; i <= textVar.length; i++)
     {
 
-        textBack.push[textVar.charAt(totLength)];
-        totLength -= totLength;
+        var holder = textVar.charAt(totLength);
+        console.log(holder);
+        //textBack.push[holder];
+        totLength--;
 
     }
 
@@ -27,3 +29,5 @@ function ReverseString(textVar)
     return textBack;
 
 }
+
+console.log(ReverseString("testing"));
