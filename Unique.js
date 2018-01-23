@@ -7,7 +7,14 @@ o Return false is two or more elements are the same.
 
  */
 
-function isUnique()
+function isUnique(strArray)
 {
+
+    var totLength = strArray.length;
+
+    for (i = 0; i < strArray.length; i++)
+    {
+
+    }
 
 }
