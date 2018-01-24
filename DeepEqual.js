@@ -27,7 +27,7 @@ function DeepEqual(input1, input2) {
 
 
     //initial If statement to qualify variables if they're NOT both Objects
-    if (input1.typeof != Object || input2.typeof != Object) {
+    if (input1.constructor !== Object || input2.constructor !== Object) {
 
         //If the variables are not objects, but either one is null, then return False
         if (input1 === null || input2 === null) {
@@ -49,22 +49,23 @@ function DeepEqual(input1, input2) {
 
 
     //If the first variable passed is an Object but the second passed is not an Object then return False
-    else if (input1.typeof = Object && input2.typeof != Object) {
+    else if (input1.constructor === Object && input2.constructor !== Object) {
         return false;
     }
 
 
     //If the first variable passed is not an Object but the second is then return False
-    else if (input1.typeof != Object && input2.typeof == Object) {
+    else if (input1.constructor !== Object && input2.constructor === Object) {
         return false;
     }
 
 
     //IF both variables are Objects, then we'll need to examine the contents to determine if they're the same
-    else if (input1.typeof == Object && input2.typeof == Object) {
+    else if (input1.constructor === Object && input2.constructor === Object) {
         var input1Array = [];
         var input2Array = [];
         var diffCount = 0;
+        console.log("I am in object comparison");
 
         for (inputs in input1) {
             input1Array += inputs;
@@ -82,7 +83,7 @@ function DeepEqual(input1, input2) {
 
             for (i = 0; i <= input1Array.length; i++) {
                 if (input1Array[i] != input2Array[i]) {
-                    diffCount++
+                    diffCount++;
                 }
 
             }
@@ -123,7 +124,11 @@ var states3 = {
     "NY": "New York"
 }
 
+var d = new Object();
+var e = new Object();
+
 console.log(DeepEqual(test1, test2));
 console.log(DeepEqual(test1, test3));
 console.log(DeepEqual(states1, states2));
 console.log(DeepEqual(states1, states3));
+console.log(DeepEqual(d, e));
