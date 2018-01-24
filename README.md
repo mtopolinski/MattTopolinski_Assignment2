@@ -3,21 +3,18 @@ CIS-385 Assignment 2
 
 
 
-Problem 1: ReverseString()
-Create a JavaScript file called Reverse.js that will do the following.
+Reverse.js is a Javascript file that will do the following.
 Write a function called ReveseString() that takes one argument You may assume that the argument is a string.
 o Return the a string with all of the characters in reverse order.
 o For example: the string "reverse" will return "esrever".
 o What happens if null is passed in as an argument? How can we prevent problems caused by null or undefined?
 
-Problem 2: IsUnique()
-Create a JavaScript file called Unique.js that will do the following.
+Unique.js is a Javascript file that will do the following.
 Write a function called IsUnique() that takes an array as an argument You may assume that the array has only strings.
 o Return true is every element in the array is unique.
 o Return false is two or more elements are the same.
 
-Problem 3: DeepEqual
-Create a JavaScript file called DeepEqual.js that will do the following.
+DeepEqual.js is a Javascript file that will do the following.
 This problem is found in Chapter 4 of Eloquent JavaScript. Hints can be found on the website version here:
 
 http://eloquentjavascript.net/04_data.html#h_IJBU+aXOIC
