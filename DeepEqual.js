@@ -23,7 +23,7 @@ console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
 
 
 //create the function to pass two objects/variables
-function DeepEqual(input1, input2) {
+function deepEqual(input1, input2) {
 
     //If the variables are not objects, but either one is null, then return False
     if (input1 === null || input2 === null) {
@@ -144,9 +144,25 @@ var d = new Object();
 var e = new Object();
 var f = null;
 
-console.log(DeepEqual(test1, test2));
-console.log(DeepEqual(test1, test3));
-console.log(DeepEqual(states1, states2));
-console.log(DeepEqual(states1, states3));
-console.log(DeepEqual(d, e));
-console.log(DeepEqual(d, f));
+console.log(deepEqual(test1, test2));
+// → true
+console.log(deepEqual(test1, test3));
+// → false
+console.log(deepEqual(states1, states2));
+// → true
+console.log(deepEqual(states1, states3));
+// → false
+console.log(deepEqual(d, e));
+// → true
+console.log(deepEqual(d, f));
+// → false
+
+
+var obj = {here: {is: "an"}, object: 2};
+
+console.log(deepEqual(obj, obj));
+// → true
+console.log(deepEqual(obj, {here: 1, object: 2}));
+// → false
+console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
+// → true
