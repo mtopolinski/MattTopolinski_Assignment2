@@ -62,36 +62,51 @@ function DeepEqual(input1, input2) {
 
     //IF both variables are Objects, then we'll need to examine the contents to determine if they're the same
     else if (input1.constructor === Object && input2.constructor === Object) {
-        var input1Array = [];
-        var input2Array = [];
-        var diffCount = 0;
-        console.log("I am in object comparison");
 
+        //array variable to hold the contents of object1
+        var input1Array = [];
+
+        //array variable to hold the contents of object2
+        var input2Array = [];
+
+        //counter to keep track of # of differences between the contents of both objects
+        var diffCount = 0;
+
+        //loop to access the contents of object1 and add them to array1
         for (inputs in input1) {
             input1Array += inputs;
         }
 
+        //loop to access the contents of object2 and add them to array2
         for (inputs in input2) {
             input2Array += inputs;
         }
 
+
+        //IF statement to quickly determine if the inputs have a different # of total contents
         if (input1Array.length != input2Array.length) {
             return false;
         }
 
+        //IF statement to validate that both arrays have the same # of contents
         else if (input1Array.length === input2Array.length) {
 
+            //for loop to iterate through the arrays to compare them
             for (i = 0; i <= input1Array.length; i++) {
+
+                //if the array contents do NOT match, then increase the diff counter by 1
                 if (input1Array[i] != input2Array[i]) {
                     diffCount++;
                 }
 
             }
 
-            if (diffCount <= 0) {
+            //if the diff counter is 0, then there are no differences between the array contents, thus the objects are the same
+            if (diffCount === 0) {
                 return true;
             }
 
+            //if the diff counter has a # greater than zero, then we know the arrays/objects are different
             else if (diffCount > 0) {
                 return false;
             }
