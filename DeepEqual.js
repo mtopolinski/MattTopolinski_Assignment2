@@ -64,41 +64,46 @@ function deepEqual(input1, input2) {
     //IF both variables are Objects, then we'll need to examine the contents to determine if they're the same
     else if (input1.constructor === Object && input2.constructor === Object) {
 
+        //array to hold the property contents of object1
         var input1Array = {};
+
+        //array to hold the propery contents of object2
         var input2Array = {};
 
+        //for loop to dump the contents of input1 into an array
         for (var inputs in input1) {
 
             input1Array += input1[inputs];
         }
 
+        //for loop to dump the contents of input2 into an array
         for (var inputs in input2) {
 
             input2Array += input2[inputs];
         }
 
 
-        // If number of properties is different,
-        // objects are not equivalent
+        //IF statement to check to see if the array lengths are NOT equal
         if (input1Array.length !== input2Array.length) {
 
             return false;
         }
 
+        //IF statement to check to see if the array length are equal
         else if (input1Array.length === input2Array.legnth) {
 
+            //if the array lengths are equal, we will run a for loop to compare the contents to each other
             for (var i = 0; i < input1Array.length; i++) {
-                // If values of same property are not equal,
-                // objects are not equivalent
+
+                //if the contents are not equal, then the Objects are different
                 if (input1Array[i] !== input2Array[i]) {
                     return false;
                 }
             }
         }
 
+        //if everything else holds true, then the Objects must be equal
         else {
-            // If we made it this far, objects
-            // are considered equivalent
 
             return true;
         }
@@ -127,31 +132,34 @@ var states3 = {
 
     "IL": "Illinois",
     "IN": "Indiana",
-    "NY": "New York"
+    "NY": "New York State"
 }
 
-var d = new Object();
-var e = new Object();
+var d = {
+
+    "1": "one",
+    "2": "two",
+    "3": "three"
+}
+
 var f = null;
 
-console.log(deepEqual(test1, test2));
+console.log("This check should be 'true' ---> " + deepEqual(test1, test2));
 // → true
-console.log(deepEqual(test1, test3));
+console.log("This check should be 'false' ---> " + deepEqual(test1, test3));
 // → false
-console.log(deepEqual(states1, states2));
+console.log("This check should be 'true' ---> " + deepEqual(states1, states2));
 // → true
-console.log(deepEqual(states1, states3));
+console.log("This check should be 'false' ---> " + deepEqual(states1, states3));
 // → false
-console.log(deepEqual(d, e));
-// → true
-console.log(deepEqual(d, f));
+console.log("This check should be 'false' ---> " + deepEqual(d, f));
 // → false
 console.log("\n\n");
 
 var obj = {here: {is: "an"}, object: 2};
-console.log(deepEqual(obj, obj));
+console.log("This check should be 'true' ---> " + deepEqual(obj, obj));
 // → true
-console.log(deepEqual(obj, {here: 1, object: 2}));
+console.log("This check should be 'false' ---> " + deepEqual(obj, {here: 1, object: 2}));
 // → false
-console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
+console.log("This check should be 'true' ---> " + deepEqual(obj, {here: {is: "an"}, object: 2}));
 // → true
