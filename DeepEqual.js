@@ -145,21 +145,14 @@ var d = {
 var f = null;
 
 console.log("This check should be 'true' ---> " + deepEqual(test1, test2));
-// → true
 console.log("This check should be 'false' ---> " + deepEqual(test1, test3));
-// → false
 console.log("This check should be 'true' ---> " + deepEqual(states1, states2));
-// → true
 console.log("This check should be 'false' ---> " + deepEqual(states1, states3));
-// → false
 console.log("This check should be 'false' ---> " + deepEqual(d, f));
-// → false
+
 console.log("\n\n");
 
 var obj = {here: {is: "an"}, object: 2};
 console.log("This check should be 'true' ---> " + deepEqual(obj, obj));
-// → true
 console.log("This check should be 'false' ---> " + deepEqual(obj, {here: 1, object: 2}));
-// → false
 console.log("This check should be 'true' ---> " + deepEqual(obj, {here: {is: "an"}, object: 2}));
-// → true
