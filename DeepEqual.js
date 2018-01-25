@@ -43,7 +43,7 @@ function deepEqual(input1, input2) {
         }
 
         //IF the variables are NOT Objects and are NOT equal, then return False
-        else if (input1 != input2) {
+        else if (input1 !== input2) {
             return false;
         }
     }
@@ -64,56 +64,46 @@ function deepEqual(input1, input2) {
     //IF both variables are Objects, then we'll need to examine the contents to determine if they're the same
     else if (input1.constructor === Object && input2.constructor === Object) {
 
-        //array variable to hold the contents of object1
-        var input1Array = [];
+        var input1Array = {};
+        var input2Array = {};
 
-        //array variable to hold the contents of object2
-        var input2Array = [];
+        for (var inputs in input1) {
 
-        //counter to keep track of # of differences between the contents of both objects
-        var diffCount = 0;
-
-        //loop to access the contents of object1 and add them to array1
-        for (inputs in input1) {
-            input1Array += inputs;
+            input1Array += input1[inputs];
         }
 
-        //loop to access the contents of object2 and add them to array2
-        for (inputs in input2) {
-            input2Array += inputs;
+        for (var inputs in input2) {
+
+            input2Array += input2[inputs];
         }
 
 
-        //IF statement to quickly determine if the inputs have a different # of total contents
-        if (input1Array.length != input2Array.length) {
+        // If number of properties is different,
+        // objects are not equivalent
+        if (input1Array.length !== input2Array.length) {
+
             return false;
         }
 
-        //IF statement to validate that both arrays have the same # of contents
-        else if (input1Array.length === input2Array.length) {
+        else if (input1Array.length === input2Array.legnth) {
 
-            //for loop to iterate through the arrays to compare them
-            for (i = 0; i <= input1Array.length; i++) {
-
-                //if the array contents do NOT match, then increase the diff counter by 1
-                if (input1Array[i] != input2Array[i]) {
-                    diffCount++;
+            for (var i = 0; i < input1Array.length; i++) {
+                // If values of same property are not equal,
+                // objects are not equivalent
+                if (input1Array[i] !== input2Array[i]) {
+                    return false;
                 }
-
-            }
-
-            //if the diff counter is 0, then there are no differences between the array contents, thus the objects are the same
-            if (diffCount === 0) {
-                return true;
-            }
-
-            //if the diff counter has a # greater than zero, then we know the arrays/objects are different
-            else if (diffCount > 0) {
-                return false;
             }
         }
-    }
 
+        else {
+            // If we made it this far, objects
+            // are considered equivalent
+
+            return true;
+        }
+
+    }
 
 }
 
@@ -156,10 +146,9 @@ console.log(deepEqual(d, e));
 // → true
 console.log(deepEqual(d, f));
 // → false
-
+console.log("\n\n");
 
 var obj = {here: {is: "an"}, object: 2};
-
 console.log(deepEqual(obj, obj));
 // → true
 console.log(deepEqual(obj, {here: 1, object: 2}));
