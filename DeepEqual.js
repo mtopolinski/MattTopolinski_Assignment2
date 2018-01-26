@@ -39,11 +39,13 @@ function deepEqual(input1, input2) {
 
         //if the variables are NOT objects and are equal to each other then return True
         if (input1 === input2) {
+            
             return true;
         }
 
         //IF the variables are NOT Objects and are NOT equal, then return False
         else if (input1 !== input2) {
+
             return false;
         }
     }
@@ -51,20 +53,20 @@ function deepEqual(input1, input2) {
 
     //If the first variable passed is an Object but the second passed is not an Object then return False
     else if (input1.constructor === Object && input2.constructor !== Object) {
+
         return false;
     }
 
 
     //If the first variable passed is not an Object but the second is then return False
     else if (input1.constructor !== Object && input2.constructor === Object) {
+
         return false;
     }
 
 
     //IF both variables are Objects, then we'll need to examine the contents to determine if they're the same
     else if (input1.constructor === Object && input2.constructor === Object) {
-
-
 
         //array to hold the property contents of object1
         var input1Array = {};
@@ -74,11 +76,13 @@ function deepEqual(input1, input2) {
 
         //for loop to dump the contents of input1 into an array
         for (var inputs in input1) {
+
             input1Array += input1[inputs];
         }
 
         //for loop to dump the contents of input2 into an array
         for (var inputs in input2) {
+
             input2Array += input2[inputs];
         }
 
@@ -97,20 +101,16 @@ function deepEqual(input1, input2) {
 
                 //if the contents are not equal, then the Objects are different
                 if (input1Array[i] !== input2Array[i]) {
+
                     return false;
                 }
             }
 
             //if everything else holds true, then the Objects must be equal
-
-
             return true;
 
         }
-
-
     }
-
 }
 
 var test1 = "a";
