@@ -64,6 +64,8 @@ function deepEqual(input1, input2) {
     //IF both variables are Objects, then we'll need to examine the contents to determine if they're the same
     else if (input1.constructor === Object && input2.constructor === Object) {
 
+
+
         //array to hold the property contents of object1
         var input1Array = {};
 
@@ -72,13 +74,11 @@ function deepEqual(input1, input2) {
 
         //for loop to dump the contents of input1 into an array
         for (var inputs in input1) {
-
             input1Array += input1[inputs];
         }
 
         //for loop to dump the contents of input2 into an array
         for (var inputs in input2) {
-
             input2Array += input2[inputs];
         }
 
@@ -90,7 +90,7 @@ function deepEqual(input1, input2) {
         }
 
         //IF statement to check to see if the array length are equal
-        else if (input1Array.length === input2Array.legnth) {
+        else if (input1Array.length === input2Array.length) {
 
             //if the array lengths are equal, we will run a for loop to compare the contents to each other
             for (var i = 0; i < input1Array.length; i++) {
@@ -100,13 +100,14 @@ function deepEqual(input1, input2) {
                     return false;
                 }
             }
-        }
 
-        //if everything else holds true, then the Objects must be equal
-        else {
+            //if everything else holds true, then the Objects must be equal
+
 
             return true;
+
         }
+
 
     }
 
@@ -132,7 +133,7 @@ var states3 = {
 
     "IL": "Illinois",
     "IN": "Indiana",
-    "NY": "New York State"
+    "NY": "New York"
 }
 
 var d = {
