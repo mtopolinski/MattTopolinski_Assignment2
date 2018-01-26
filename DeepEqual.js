@@ -28,7 +28,7 @@ function deepEqual(input1, input2) {
     //If the variables are not objects, but either one is null, then return False
     if (input1 === null || input2 === null) {
 
-        console.log("Error; a null and/or null object has been used.");
+        console.log("\nError; a null and/or null object has been used.");
         return false;
 
     }
@@ -39,7 +39,7 @@ function deepEqual(input1, input2) {
 
         //if the variables are NOT objects and are equal to each other then return True
         if (input1 === input2) {
-            
+
             return true;
         }
 
