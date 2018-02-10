@@ -10,20 +10,37 @@ o What happens if null is passed in as an argument? How can we prevent problems 
 //function to accept String and reverse it
 function ReverseString(textVar)
 {
-    //initializing an array to accept each character from the original String
-    var textBack = [];
 
-    var totLength = textVar.length;
 
-    for (i = 0; i < textVar.length; i++)
+    if (textVar === null)
     {
 
-        textBack.push[textVar.charAt(totLength)];
-        totLength -= totLength;
-
+        return "Error; a null value has been passed to the function. Please try again by passing a String."
     }
 
-    //return the array with the text reversed
-    return textBack;
+    else {
+
+        //initializing an array to accept each character from the original String
+        var textBack = "";
+
+        
+        var totLength = textVar.length;
+
+        for (i = 0; i <= textVar.length; i++) {
+
+            textBack += textVar.charAt((totLength));
+            totLength--;
+
+        }
+
+        //return the array with the text reversed
+        return textBack;
+    }
+
+
 
 }
+
+console.log(ReverseString("reverse"));
+
+console.log(ReverseString(null));
